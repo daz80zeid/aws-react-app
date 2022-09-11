@@ -1,4 +1,11 @@
 import React, {FC} from 'react';
+import {FooterMenuLinksData} from "../../data/constans";
+
+interface IFooterLinksItem {
+    href: string
+    src: string
+    alt: string
+}
 
 export const Footer: FC = () => {
     return (
@@ -6,9 +13,13 @@ export const Footer: FC = () => {
             <article className="content">
                 <div id="socialmedia">
                     <ul className="group">
-                        <li><a href="https://twitter.com"><img className="icon" src="https://landonhotel.com/images/socialmedia/twitter.png" alt="icon for twitter" /></a></li>
-                        <li><a href="http://www.facebook.com"><img className="icon" src="https://landonhotel.com/images/socialmedia/facebook.png" alt="icon for facebook" /></a></li>
-                        <li><a href="http://www.youtube.com"><img className="icon" src="https://landonhotel.com/images/socialmedia/youtube.png" alt="icon for youtube" /></a></li>
+                        {FooterMenuLinksData.map((item:IFooterLinksItem) =>(
+                            <li>
+                                <a href={item.href}>
+                                    <img className="icon" src={item.src} alt={item.alt}/>
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </article>
