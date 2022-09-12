@@ -1,19 +1,15 @@
 import React from 'react';
-import {ImageGalleryLinksData} from "../../data/constans";
-
-interface IImageGalleryLinksItem {
-    src: string
-    alt: string
-    class?: string
-}
+import {UseImageGallery} from "./useImageGallery";
+import {IImageGalleryLinksItem} from "./@types";
 
 export const ImageGallery = () => {
+    const {ImageGalleryLinksData} = UseImageGallery()
     return (
         <div className="scene" id="welcome">
             <article className="content">
                 <div className="gallery">
-                    {ImageGalleryLinksData.map((item: IImageGalleryLinksItem) => (
-                        <img className={item.class && item.class} src={item.src} alt={item.alt} />
+                    {ImageGalleryLinksData.map((item: IImageGalleryLinksItem, index) => (
+                        <img className={item.class && item.class} src={item.src} alt={item.alt} key={index} />
                     ))}
                 </div>
                 <h1>Welcome to the Landon&nbsp;Hotel</h1>
